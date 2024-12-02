@@ -1,0 +1,36 @@
+create table trip_tour
+(
+    id             varchar(50) default 'uuid()'          not null
+        primary key,
+    title          varchar(255)                          null,
+    image          varchar(255)                          null,
+    duration       varchar(255)                          null,
+    destination    varchar(255)                          null,
+    transportation varchar(255)                          null,
+    rating         int                                   null,
+    price          decimal(18, 2)                        null,
+    history        text                                  null,
+    description    text                                  null,
+    createdby      varchar(50)                           null,
+    createdat      timestamp   default CURRENT_TIMESTAMP null,
+    updateby       varchar(50)                           null,
+    updatedat      timestamp                             null
+);
+
+create table users
+(
+    id            varchar(50)  default 'uuid()'           not null
+        primary key,
+    nama          varchar(255)                            null,
+    email         varchar(255)                            null,
+    password      varchar(255)                            null,
+    phone         varchar(25)                             null,
+    profile_image varchar(255) default 'user/default.png' null,
+    createdby     varchar(50)                             null,
+    createdat     timestamp    default CURRENT_TIMESTAMP  null,
+    updatedby     varchar(50)                             null,
+    updatedat     timestamp                               null,
+    constraint users_pk
+        unique (email)
+);
+
